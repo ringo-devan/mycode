@@ -1,0 +1,11 @@
+---
+- name: "Playbook to install figlet"
+  hosts: localhost 
+  
+  tasks:
+  - name: "apt module - Use APT to install a simple application"
+    apt:
+     name: figlet
+     state: present
+    become: true
+

@@ -1,0 +1,25 @@
+---
+- name: looping across a list var with "loop"
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks: # missing this
+
+     # what you'll need to do is steal the URI module with the register keyword from lab 16
+     # save the data you ghttps://anapioficeandfire.com/api/et from anapioficeandfire (that url you got there)
+     # then loop over that
+   
+    #     tasks: oops had an extra tasks here
+  - name: Print out to the screen
+    uri:
+      url: https://anapioficeandfire.com/api/books
+    register: devanscoolvar #devancoolvar.json.aliases
+
+      # your second task was off in indentation by ONE WHITESPACE (I hate when that happens, been there!!)
+
+  - name: "Loop Snow Alias"
+    ansible.builtin.debug:
+       msg: "John Snow Shall be Called --> {{ item }}"
+    loop: "{{ devanscoolvar.json.name }}" # <--- this line will eventually looks something like this:
+       
