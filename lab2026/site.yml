@@ -1,0 +1,8 @@
+---
+
+- name: Apply a firewall change request to Panorama
+  hosts: panorama
+  connection: local
+  gather_facts: false
+  roles:
+    - panorama_rule 

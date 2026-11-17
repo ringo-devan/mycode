@@ -1,0 +1,27 @@
+---
+#Panorama connection ///9real values come from inventory + vault. never hard coded)
+panorama_ip: "192.0.2.10"
+panorama_api_key: "{{ vault_panos_api_key | default ('CHANGEME') }}"
+
+# where the change lands
+device_group: "Lab-DG"
+
+# The Change Request (the ticket)
+change_id: "chg0001234"
+
+address_objects:
+  - name: web-01
+    value: 10.10.20.15/32
+  - name: app-01
+    value: 10.10.30.25/32
+  
+security_rule:
+  name: allow-web-to-app
+  source_zone: [web]
+  destination_zone: [app]
+  source_ip: [web-01]
+  destination_ip: [app-01]
+  application: [ssl]
+  service: [application-default]
+  action: allow
+
