@@ -1,7 +1,7 @@
 ---
-#Panorama connection ///9real values come from inventory + vault. never hard coded)
+# Panorama connection ///9real values come from inventory + vault. never hard coded)
 panorama_ip: "192.0.2.10"
-panorama_api_key: "{{ vault_panos_api_key | default ('CHANGEME') }}"
+panorama_api_key: "{{ vault_panos_api_key | default('CHANGEME') }}"
 
 # where the change lands
 device_group: "Lab-DG"
@@ -14,7 +14,7 @@ address_objects:
     value: 10.10.20.15/32
   - name: app-01
     value: 10.10.30.25/32
-  
+
 security_rule:
   name: allow-web-to-app
   source_zone: [web]
@@ -24,4 +24,3 @@ security_rule:
   application: [ssl]
   service: [application-default]
   action: allow
-

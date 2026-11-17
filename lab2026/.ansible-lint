@@ -1,0 +1,5 @@
+---
+# Team decision: role variables are short for readability in this lab.
+# In production we'd enforce the panorama_rule_ prefix.
+skip_list:
+  - var-naming[no-role-prefix]

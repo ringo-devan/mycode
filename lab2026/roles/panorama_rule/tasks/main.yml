@@ -10,14 +10,14 @@
     provider: "{{ panos_provider }}"
     name: "{{ item.name }}"
     value: "{{ item.value }}"
-    description: "{{change_id}}"
+    description: "{{ change_id }}"
     state: present
   loop: "{{ address_objects }}"
 
 - name: Create security rule
   paloaltonetworks.panos.panos_security_rule:
     provider: "{{ panos_provider }}"
-    device_group: "{{device_group }}"
+    device_group: "{{ device_group }}"
     rule_name: "{{ security_rule.name }}"
     source_zone: "{{ security_rule.source_zone }}"
     destination_zone: "{{ security_rule.destination_zone }}"

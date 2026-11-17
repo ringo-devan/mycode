@@ -5,4 +5,4 @@
   connection: local
   gather_facts: false
   roles:
-    - panorama_rule 
+    - panorama_rule
